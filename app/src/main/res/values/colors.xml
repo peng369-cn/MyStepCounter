@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="green_primary">#1B5E20</color>
+    <color name="green_on_primary">#FFFFFF</color>
+    <color name="green_primary_container">#A5D6A7</color>
+    <color name="green_on_primary_container">#0D3B11</color>
+
+    <color name="green_secondary">#4CAF50</color>
+    <color name="green_on_secondary">#FFFFFF</color>
+    <color name="green_secondary_container">#C8E6C9</color>
+    <color name="green_on_secondary_container">#1B5E20</color>
+
+    <color name="surface_light">#FFFBFF</color>
+    <color name="on_surface_light">#1C1B1F</color>
+    <color name="surface_variant_light">#E7E8EB</color>
+    <color name="on_surface_variant_light">#44474E</color>
+
+    <color name="surface_dark">#1C1B1F</color>
+    <color name="on_surface_dark">#E6E1E5</color>
+    <color name="surface_variant_dark">#44474E</color>
+    <color name="on_surface_variant_dark">#C4C6D0</color>
+
+    <color name="text_primary">#1C1B1F</color>
+    <color name="text_secondary">#666666</color>
+    <color name="text_hint">#999999</color>
+    <color name="divider">#E0E0E0</color>
+
+    <color name="chart_line">#1B5E20</color>
+    <color name="chart_fill">#1B5E20</color>
+</resources>

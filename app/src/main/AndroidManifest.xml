@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 权限、组件、入口页都在这声明 -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- 身体活动识别，Android 10+ 弹窗申请 -->
+    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
+    <!-- 前台服务，安装时自动给 -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <!-- Android 14+ 前台服务类型必须声明 -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
+    <!-- 通知权限，Android 13+ 弹窗申请 -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <!-- 保持CPU唤醒，防止息屏后传感器停止回调 -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- 引导用户跳转省电白名单设置页 -->
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+    <!-- 网络请求，与后端接口通信 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 网络状态检测，判断是否联网 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="MyStepCounter"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MyStepCounter"
+        android:usesCleartextTraffic="true">
+
+        <!-- 主界面，singleTop 防止通知栏点击时重复创建 -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            tools:ignore="MissingAttribution">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 计步前台服务，dataSync 类型满足 Android 14+ 要求 -->
+        <service
+            android:name=".StepCounterService"
+            android:foregroundServiceType="dataSync"
+            android:exported="false" />
+
+        <!-- 登录注册页面 -->
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+
+        <!-- 排行榜页面 -->
+        <activity
+            android:name=".RankingActivity"
+            android:exported="false" />
+
+        <!-- 个人中心页面 -->
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="false" />
+
+    </application>
+
+</manifest>

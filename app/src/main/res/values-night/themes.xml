@@ -1,0 +1,23 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Base.Theme.MyStepCounter" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/green_primary_container</item>
+        <item name="colorOnPrimary">@color/green_on_primary_container</item>
+        <item name="colorPrimaryContainer">@color/green_primary</item>
+        <item name="colorOnPrimaryContainer">@color/green_primary_container</item>
+
+        <item name="colorSecondary">@color/green_secondary_container</item>
+        <item name="colorOnSecondary">@color/green_on_secondary_container</item>
+        <item name="colorSecondaryContainer">@color/green_secondary</item>
+        <item name="colorOnSecondaryContainer">@color/green_secondary_container</item>
+
+        <item name="colorSurface">@color/surface_dark</item>
+        <item name="colorOnSurface">@color/on_surface_dark</item>
+        <item name="colorSurfaceVariant">@color/surface_variant_dark</item>
+        <item name="colorOnSurfaceVariant">@color/on_surface_variant_dark</item>
+
+        <item name="android:statusBarColor">@color/surface_dark</item>
+        <item name="android:navigationBarColor">@color/surface_dark</item>
+    </style>
+
+    <style name="Theme.MyStepCounter" parent="Base.Theme.MyStepCounter" />
+</resources>
