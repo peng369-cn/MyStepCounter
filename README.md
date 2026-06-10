@@ -115,9 +115,21 @@ server/src/main/java/com/pengchangwei/stepserver/
 - 传感器重启归零时，从 Room 数据库恢复已记录的步数，与新传感器差值合并
 - 所有 UI 最终从 Room 数据库读取，保证数据一致性
 
+## 排行榜 Redis 实现
+
+日榜使用 Redis Sorted Set 代替 MySQL ORDER BY 全表排序：
+
+- **写入**：步数上报成功后同步执行 `ZADD ranking:yyyy-MM-dd userId steps`，相同用户覆盖分数。写入失败只记日志，不影响主流程
+- **查询**：`ZREVRANGE ranking:yyyy-MM-dd 0 99 WITHSCORES` 取 Top 100，再从 MySQL 批量补查昵称，掉出前 100 的排名自动降级 MySQL
+- **降级**：Redis 不可用或 key 不存在时自动切回 MySQL ORDER BY 分页查询，服务不中断
+- **清理**：每次 ZADD 后重置 48 小时 TTL，活跃 key 自动续期，不活跃自然过期
+- **总榜**：跨天 SUM 聚合场景不适合 Sorted Set，保持 MySQL
+
+代码见 `StepRecordService.syncToRankingCache()` 和 `RankingService.getDailyRanking()`。
+
 ## 性能测试
 
-排行榜接口引入 Redis 缓存（TTL 1分钟），提供纯 MySQL 对比接口。
+排行榜引入 Redis Sorted Set 缓存，提供纯 MySQL 对比接口。
 
 串行 500 次调用对比：
 
