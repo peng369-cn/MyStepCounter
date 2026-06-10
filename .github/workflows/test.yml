@@ -9,9 +9,6 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    env:
-      ANDROID_HOME: /usr/local/lib/android/sdk
-      ANDROID_SDK_ROOT: /usr/local/lib/android/sdk
 
     steps:
       - uses: actions/checkout@v4
@@ -22,12 +19,10 @@ jobs:
           java-version: 17
           distribution: temurin
 
-      - name: Install Android SDK Platform 35
-        run: |
-          yes | ${ANDROID_SDK_ROOT}/cmdline-tools/latest/bin/sdkmanager "platforms;android-35"
-
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
 
       - name: Run unit tests
         run: ./gradlew :app:testDebugUnitTest
+        env:
+          ANDROID_SDK_ROOT: /usr/local/lib/android/sdk
