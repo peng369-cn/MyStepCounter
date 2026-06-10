@@ -34,17 +34,17 @@
 
 ## 技术栈
 
-| 类别 | 技术 |
-|------|------|
-| 语言 | Java 11 |
-| 架构 | MVVM (ViewModel + LiveData) |
-| 数据库 | Room |
-| 图表 | MPAndroidChart 3.1.0 |
-| UI | Material Design 3 |
+| 类别 | 技术                                  |
+|------|-------------------------------------|
+| 语言 | Java 11                             |
+| 架构 | MVVM (ViewModel + LiveData)         |
+| 数据库 | Room                                |
+| 图表 | MPAndroidChart 3.1.0                |
+| UI | Material Design 3                   |
 | 构建 | Gradle Kotlin DSL + Version Catalog |
-| 测试 | JUnit 4 |
-| 最低版本 | Android 8.0 (API 26) |
-| 目标版本 | Android 16 Beta (API 36) |
+| 测试 | JUnit 4                             |
+| 最低版本 | Android 8.0 (API 26)                |
+| 目标版本 | Android 15 (API 35)                 |
 
 ### 后端
 
